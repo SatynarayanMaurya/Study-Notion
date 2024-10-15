@@ -8,7 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { apiConnector } from '../../../Services/apiConnector';
 import { instructorEndpoints } from '../../../Services/apis';
 import { setCourseId } from '../../../Redux/Slices/userSlice';
-
+import { setLoading } from '../../../Redux/Slices/loginSlice';
+import Spinner from '../../../Components/Common/Spinner';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,15 +22,18 @@ function Mycourses() {
     const [allCourses , setAllCourses ] = useState([])
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const loading = useSelector((state)=>state.auth.loading);
 
     const getAllCourses = async ()=>{
         try{
+                dispatch(setLoading(true))
                 const response = await apiConnector("get", instructorEndpoints.GET_COURSES_API, {}, {"Authorization":`Bearer ${token}`})  
-                // console.log("YOur responces is : ",response.data.courses)
+                dispatch(setLoading(false))
                 setAllCourses(response.data.courses.courses.reverse())
         }
         catch(error){
-            console.log("Error in catch block : ",error)
+             dispatch(setLoading(false))
+            toast.error(error.response.data.message)
             return ;
         }
     }
@@ -50,7 +56,7 @@ function Mycourses() {
 
   return (
     <div className='lg:ml-12 lg:mr-36 ml-4 mr-2  lg:mt-6 mt-16 flex flex-col gap-8'>
-
+            {loading && <Spinner/>}
             <div className='flex justify-between items-center'>
                     <div className='flex flex-col lg:gap-3 gap-1'>
                         <p>Home / Dashboard / <span className='text-yellow-400'>Courses</span></p>
