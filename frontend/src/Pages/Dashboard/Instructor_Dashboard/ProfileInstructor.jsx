@@ -3,8 +3,6 @@ import { FiEdit } from "react-icons/fi";
 import { useDispatch, useSelector } from 'react-redux';
 import { apiConnector } from '../../../Services/apiConnector';
 import { profileEndpoints } from '../../../Services/apis';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { setProfileImage } from '../../../Redux/Slices/userSlice';
 import {setLoading } from "../../../Redux/Slices/loginSlice"
