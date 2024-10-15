@@ -2,24 +2,33 @@ import React, { useEffect, useState } from 'react'
 import { apiConnector } from '../../../Services/apiConnector';
 import { studentEndpoints } from '../../../Services/apis';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Spinner from '../../../Components/Common/Spinner';
+import { setLoading } from '../../../Redux/Slices/loginSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Courses() {
 
     const [allCourses, setAllCourses] = useState([])
     const token = useSelector((state)=>state.auth.token)
     const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const loading = useSelector((state)=>state.auth.loading)
     const courseClickedHandler = async (courseId)=>{
         navigate(`/student-dashboard/courses/buy-course/${courseId}`)
     }
 
     const getAllCourses = async ()=>{
         try{
+            dispatch(setLoading(true))
             const responce = await apiConnector("get", studentEndpoints.GET_ALL_COURSES_API ,{}, {"Authorization":`Bearer ${token}`})
             setAllCourses(responce.data.course)
+            dispatch(setLoading(false))
         }
         catch(error){
-            console.log("Error while fetching all the courses in student course section : ",error );
+            dispatch(setLoading(false))
+            toast.error(error.response.data.message);
             return;
         }
     }
@@ -34,6 +43,7 @@ function Courses() {
 
   return (
     <div className='flex flex-col h-full lg:mt-0 mt-10'>
+        {loading && <Spinner/>}
         <p className='lg:ml-10 ml-4 mt-4'>Home / Dashboard / <span className='text-yellow-400'>Courses</span></p>
         <p className='text-2xl font-semibold lg:ml-10 ml-4 lg:mt-6 mt-3'>Courses</p>
 
