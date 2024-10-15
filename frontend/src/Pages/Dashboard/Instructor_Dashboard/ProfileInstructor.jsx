@@ -7,7 +7,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { setProfileImage } from '../../../Redux/Slices/userSlice';
-
+import {setLoading } from "../../../Redux/Slices/loginSlice"
+import Spinner from '../../../Components/Common/Spinner';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProfileInstructor() {
 
@@ -16,18 +19,19 @@ function ProfileInstructor() {
   const userId = useSelector((state)=>state.user.userId)
   const [userData , setUserData] = useState({})
   const [profileData,setProfileData] = useState({})
-
+  const loading = useSelector((state)=>state.auth.loading)
   const getInstuctorProfileData = async()=>{
     try{
-        
+        dispatch(setLoading(true))
         const responce = await apiConnector("get", profileEndpoints.GET_PROFILE_DETAILS_API ,{},{"Authorization":`Bearer ${token}`, "userId":`${userId}`})
         setUserData(responce.data.user);
+        dispatch(setLoading(false))
         setProfileData(responce.data.user.profileDetails)
         dispatch(setProfileImage(responce.data.user.profileDetails?.imageUrl))
         localStorage.setItem("profileImage", responce.data.user.profileDetails?.imageUrl)
     }
     catch(error){
-        // console.log("Error is : ",error)
+        dispatch(setLoading(false))
         toast.error(error.response.data.message)
         return;
     }
@@ -41,6 +45,7 @@ function ProfileInstructor() {
 
   return (
     <div className='flex flex-col h-full lg:mt-0 mt-10'>
+      {loading && <Spinner/>}
       <p className='lg:ml-10 ml-4 mt-4'>Home / Dashboard / <span className='text-yellow-400'>Profile</span></p>
       <p className='text-2xl font-semibold lg:ml-10 ml-4 lg:mt-6 mt-3'>My Profile</p>
 
