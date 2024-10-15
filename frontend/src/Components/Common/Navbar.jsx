@@ -21,20 +21,20 @@ function Navbar() {
                 <Link to={"/"}><img src={logo} alt=""className='w-[130px] sm:w-[200px] sm:block hidden' /></Link>
             </div>
 
-            <div className={`flex lg:gap-6 gap-4 `}>
+            <div className={`flex lg:gap-6 gap-3 lg:-ml-0 -ml-5 `}>
 
                 <NavLink to={"/"} className={({ isActive }) =>
-                    isActive ? 'text-yellow-300 font-semibold text-lg' : 'text-white font-semibold text-lg'
+                    isActive ? 'text-yellow-300 font-semibold lg:text-lg' : 'text-white font-semibold lg:text-lg'
                     }>Home
                 </NavLink>
 
                 <NavLink to={"/about"} className={({ isActive }) =>
-                    isActive ? 'text-yellow-300 font-semibold text-lg' : 'text-white font-semibold text-lg'
+                    isActive ? 'text-yellow-300 font-semibold lg:text-lg' : 'text-white font-semibold lg:text-lg'
                     }>About
                 </NavLink>
 
                 <NavLink to={"/contact"} className={({ isActive }) =>
-                    isActive ? 'text-yellow-300 font-semibold text-lg' : 'text-white font-semibold text-lg'
+                    isActive ? 'text-yellow-300 font-semibold lg:text-lg' : 'text-white font-semibold lg:text-lg'
                     }>Contact us
                 </NavLink>
                 
