@@ -9,7 +9,7 @@ const port = process.env.PORT || 4000
 
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://study-notion-frontend-satynarayan-mauryas-projects.vercel.app/', 
+    origin: '*', 
     credentials: true,
   }));
 app.use(express.json());
