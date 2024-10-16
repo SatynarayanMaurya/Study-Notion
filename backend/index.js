@@ -6,18 +6,18 @@ const cookieParser = require('cookie-parser');
 const fileUpload = require("express-fileupload")
 const port = process.env.PORT || 4000
 
-const database = require("./Config/database")
-database.connect();
+
 app.use(cookieParser());
 app.use(cors({
-    origin: '*', 
+    origin: 'https://study-notion-frontend-satynarayan-mauryas-projects.vercel.app/', 
   }));
 app.use(express.json());
 app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
 }));
-
+const database = require("./Config/database")
+database.connect();
 const cloudinary = require("./Config/cloudinaryConnect")
 cloudinary.connect();
 const route = require("./Routes/routes")
