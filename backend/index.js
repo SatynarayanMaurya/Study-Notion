@@ -10,6 +10,7 @@ const port = process.env.PORT || 4000
 app.use(cookieParser());
 app.use(cors({
     origin: 'https://study-notion-frontend-satynarayan-mauryas-projects.vercel.app/', 
+    credentials: true,
   }));
 app.use(express.json());
 app.use(fileUpload({
