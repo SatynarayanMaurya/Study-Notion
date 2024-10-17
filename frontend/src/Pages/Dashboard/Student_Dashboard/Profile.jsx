@@ -36,6 +36,10 @@ function Profile() {
         catch(error){
             dispatch(setLoading(false))
             toast.error(error.response.data.message)
+            if(error.response.data.message === "Token is invalid"){
+                localStorage.clear();
+                navigate("/")
+            }
             return;
         }
     }
