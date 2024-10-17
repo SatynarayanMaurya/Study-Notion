@@ -112,7 +112,6 @@ function LoginPage() {
                     <select name="accountType" id="accountType" {...register("accountType",{required:true})} className='text-[#999DAA] outline-none bg-[#283242] px-4 rounded-md py-2'>
                       <option value="Student">Student</option>
                       <option value="Instructor">Instructor</option>
-                      <option value="Admin">Admin</option>
                   </select>
                 </div>
 
