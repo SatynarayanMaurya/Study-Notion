@@ -9,7 +9,7 @@ import {setLoading } from "../../../Redux/Slices/loginSlice"
 import Spinner from '../../../Components/Common/Spinner';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate } from 'react-router-dom';
 function ProfileInstructor() {
 
   const dispatch = useDispatch()
@@ -18,6 +18,7 @@ function ProfileInstructor() {
   const [userData , setUserData] = useState({})
   const [profileData,setProfileData] = useState({})
   const loading = useSelector((state)=>state.auth.loading)
+  const navigate = useNavigate()
   const getInstuctorProfileData = async()=>{
     try{
         dispatch(setLoading(true))
@@ -29,8 +30,13 @@ function ProfileInstructor() {
         localStorage.setItem("profileImage", responce.data.user.profileDetails?.imageUrl)
     }
     catch(error){
-        dispatch(setLoading(false))
+       
         toast.error(error.response.data.message)
+      if(error.response.data.message === "Token is invalid"){
+        localStorage.clear();
+        navigate("/")
+      }
+       dispatch(setLoading(false))
         return;
     }
   }
