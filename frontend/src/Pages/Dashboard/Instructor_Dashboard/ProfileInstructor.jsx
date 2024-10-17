@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { apiConnector } from '../../../Services/apiConnector';
 import { profileEndpoints } from '../../../Services/apis';
 import { Link } from 'react-router-dom';
-import { setProfileImage } from '../../../Redux/Slices/userSlice';
 import {setLoading,setToken } from "../../../Redux/Slices/loginSlice"
 import Spinner from '../../../Components/Common/Spinner';
 import { toast } from 'react-toastify';
