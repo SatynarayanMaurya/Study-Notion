@@ -5,11 +5,12 @@ import { apiConnector } from '../../../Services/apiConnector';
 import { profileEndpoints } from '../../../Services/apis';
 import { Link } from 'react-router-dom';
 import { setProfileImage } from '../../../Redux/Slices/userSlice';
-import {setLoading } from "../../../Redux/Slices/loginSlice"
+import {setLoading,setToken } from "../../../Redux/Slices/loginSlice"
 import Spinner from '../../../Components/Common/Spinner';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { setAccountType, setCourseId, setProfileImage, setUserId } from '../../../Redux/Slices/userSlice';
 function ProfileInstructor() {
 
   const dispatch = useDispatch()
