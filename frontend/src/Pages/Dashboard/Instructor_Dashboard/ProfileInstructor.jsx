@@ -33,7 +33,21 @@ function ProfileInstructor() {
        
         toast.error(error.response.data.message)
       if(error.response.data.message === "Token is invalid"){
-        localStorage.clear();
+        dispatch(setToken(null));
+        localStorage.setItem("token", null)
+
+        dispatch(setUserId(null))
+        localStorage.setItem("userId", null)
+
+        dispatch(setCourseId(null))
+        localStorage.setItem("courseId", null)
+
+        dispatch(setAccountType(null))
+        localStorage.setItem("accountType", null)
+
+        dispatch(setProfileImage(null))
+        localStorage.setItem("profileImage", null)
+
         navigate("/")
       }
        dispatch(setLoading(false))
