@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { setLoading,setToken } from '../../../Redux/Slices/loginSlice';
 import Spinner from '../../../Components/Common/Spinner';
-import { setProfileImage } from '../../../Redux/Slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 import { setAccountType, setCourseId, setProfileImage, setUserId } from '../../../Redux/Slices/userSlice';
