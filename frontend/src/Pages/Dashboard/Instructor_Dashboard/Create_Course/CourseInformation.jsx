@@ -82,7 +82,7 @@ function CourseInformation() {
                       <p className='text-yellow-400'><Bs1Circle/></p>
                       <p className='-mt-1 flex'>--------------<span className='your_element'>-------</span></p>
                       <p><Bs2Circle/></p>
-                      <p className='-mt-[2px] flex'>--------------<span className='your_element>-------</span></p>
+                      <p className='-mt-[2px] flex'>--------------<span className='your_element'>-------</span></p>
                       <p><Bs3Circle/></p>
                   </div>
 
