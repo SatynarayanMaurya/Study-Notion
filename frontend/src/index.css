@@ -33,7 +33,7 @@ body{
 
 /* Show on large screens and above (1024px and above) */
 @media (min-width: 1024px) {
-  .your_element {
+  .our_element {
       display: none; /* Show on larger screens */
   }
 }
