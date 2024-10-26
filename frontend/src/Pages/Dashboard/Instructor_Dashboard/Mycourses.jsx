@@ -74,7 +74,7 @@ function Mycourses() {
 
                 <div className=' px-6 py-4 flex justify-between items-center text-[#a0a6b4]  border-b border-[#647289]'>
                         <p>Courses</p>
-                        <div className='lg:flex gap-[75px] lg:pr-4 hidden'>
+                        <div className='flex_element flex gap-[75px] lg:pr-4 '>
                             <p className='pr-2 '>Duration</p>
                             <p>Price</p>
                             <p>Action</p>
@@ -103,7 +103,7 @@ function Mycourses() {
                                     </div>
 
                                     <div className='flex lg:gap-16 gap-32 justify-between'>
-                                        <p className='lg:block hidden'>2hr 30 mins</p>
+                                        <p className='your_element'>2hr 30 mins</p>
                                         <p className='lg:text-[16px] text-[20px] lg:font-normal font-semibold lg:text-white text-blue-500'>₹ {course.price}</p>
                                         <div className='flex gap-4 text-xl '>
                                             <p><VscEdit/></p>
