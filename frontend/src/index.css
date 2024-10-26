@@ -16,3 +16,14 @@ body{
 .homebg{
     background-image: url("./assets//Logo/background.svg");
 }
+
+.your_element {
+  display: none; /* Hidden for small screens */
+}
+
+/* Show on large screens and above (1024px and above) */
+@media (min-width: 1024px) {
+  .your_element {
+      display: block; /* Show on larger screens */
+  }
+}
