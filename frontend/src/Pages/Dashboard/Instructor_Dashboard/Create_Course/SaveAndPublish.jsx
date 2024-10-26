@@ -37,11 +37,11 @@ function SaveAndPublish() {
               <div className='lg:ml-[100px] ml-4 text-[#a6abb5]'>
                   <div className='flex items-center text-[25px]'>
                       <p className='text-yellow-400'><SiTicktick/></p>
-                      <p className='-mt-1 flex text-yellow-400'>------------<span className='lg:block hidden'>---------</span></p>
+                      <p className='-mt-1 flex text-yellow-400'>------------<span className='your_element'>---------</span></p>
                       {/* <span className='-mt-1 text-yellow-400'>---------------------</span> */}
                       <p className='text-yellow-400'><SiTicktick/></p>
                       {/* <span className='-mt-1 text-yellow-400'>---------------------</span> */}
-                      <p className='-mt-1 flex text-yellow-400'>------------<span className='lg:block hidden'>---------</span></p>
+                      <p className='-mt-1 flex text-yellow-400'>------------<span className='your_element'>---------</span></p>
                       <p className='text-yellow-400'><Bs3Circle/></p>
                   </div>
                   <div className='flex lg:gap-24 gap-8 lg:text-[16px] text-[14px]'>
