@@ -18,7 +18,7 @@ function Navbar() {
         <div className='sm:w-10/12 w-11/12 mx-auto flex justify-between items-center '>
 
             <div>
-                <Link to={"/"}><img src={logo} alt=""className='w-[130px] sm:w-[200px] sm:block hidden' /></Link>
+                <Link to={"/"}><img src={logo} alt=""className='w-[130px] sm:w-[200px]  your_element ' /></Link>
             </div>
 
             <div className={`flex lg:gap-6 gap-3 lg:-ml-0 -ml-5 `}>
