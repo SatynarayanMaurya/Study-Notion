@@ -37,3 +37,13 @@ body{
       display: none; /* Show on larger screens */
   }
 }
+.flex_element {
+  display: none; /* Hidden for small screens */
+}
+
+/* Show on large screens and above (1024px and above) */
+@media (min-width: 1024px) {
+  .flex_element {
+      display: flex; /* Show on larger screens */
+  }
+}
