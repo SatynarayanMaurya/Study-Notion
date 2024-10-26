@@ -42,7 +42,7 @@ function Dashboard_Instructor() {
   return (
     <div className='flex relative'>
 
-    <p className='text-3xl font-semibold absolute your_element bg-[#1b222f] w-[250px]  p-2 z-10' onClick={menuButtonHandler}><AiOutlineMenu/></p>
+    <p className='text-3xl font-semibold absolute our_element bg-[#1b222f] w-[250px]  p-2 z-10' onClick={menuButtonHandler}><AiOutlineMenu/></p>
 
       {/* left side bar  */}
       <div className={`bg-[#1b222f] lg:w-[17%] min-h-[90vh] py-5 flex flex-col ${menuButton ? " pt-12 absolute w-[250px]  transition-all duration-200": "hidden"} lg:flex flex-col text-[#838894]`}>
