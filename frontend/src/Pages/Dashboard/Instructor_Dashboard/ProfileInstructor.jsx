@@ -31,7 +31,7 @@ function ProfileInstructor() {
     }
     catch(error){
        
-        toast.error(error.response.data.message)
+       
       if(error.response.data.message === "Token is invalid"){
         dispatch(setToken(null));
         localStorage.setItem("token", null)
@@ -50,6 +50,7 @@ function ProfileInstructor() {
 
         navigate("/")
       }
+       toast.error(error.response.data.message)
        dispatch(setLoading(false))
         return;
     }
